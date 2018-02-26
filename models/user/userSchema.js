@@ -2,9 +2,14 @@ const mongoose = require('mongoose');
 
 // Define Schemes
 const schema = new mongoose.Schema({
-  todoid: { type: Number, required: true, unique: true },
-  content: { type: String, required: true },
-  completed: { type: String, default: false }
+  uid: { type: Number, required: true, unique: true },
+  email: { type: String, required: true, unique: true},
+  nmKor: String,
+  nmEng: String,
+  majority: String,
+  career: Number,
+  contacts: String,
+  location: String
 },
 {
   timestamps: true

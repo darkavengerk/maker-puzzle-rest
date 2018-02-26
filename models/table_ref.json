@@ -1,0 +1,1143 @@
+{
+  "Database": {
+    "-Name": "makerpuzzle",
+    "-Class": "mpDataContext",
+    "-xmlns": "http://schemas.microsoft.com/linqtosql/dbml/2007",
+    "Connection": {
+      "-Mode": "WebSettings",
+      "-ConnectionString": "Data Source=makerzpuzzlereal.database.windows.net;Initial Catalog=makerpuzzle;Persist Security Info=True;User ID=adminuser",
+      "-SettingsObjectName": "System.Configuration.ConfigurationManager.ConnectionStrings",
+      "-SettingsPropertyName": "makerpuzzleConnectionString",
+      "-Provider": "System.Data.SqlClient"
+    },
+    "Table": [
+      {
+        "-Name": "dbo.Company",
+        "-Member": "Company",
+        "Type": {
+          "-Name": "Company",
+          "Column": [
+            {
+              "-Name": "cid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL IDENTITY",
+              "-IsPrimaryKey": "true",
+              "-IsDbGenerated": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "workType",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(50) NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "nmKor",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(100) NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "nmEng",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(100)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "location",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(300)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "homepage",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(300)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "telephone",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(20)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "capacity",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(100)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "profileImage",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "backImage",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "hash",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(200)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "isConfirm",
+              "-Type": "System.Boolean",
+              "-DbType": "Bit NOT NULL",
+              "-CanBeNull": "false"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "Company_CompanyProjectMap",
+              "-Member": "CompanyProjectMap",
+              "-ThisKey": "cid",
+              "-OtherKey": "cid",
+              "-Type": "CompanyProjectMap"
+            },
+            {
+              "-Name": "Company_UserCompanyMap",
+              "-Member": "UserCompanyMap",
+              "-ThisKey": "cid",
+              "-OtherKey": "cid",
+              "-Type": "UserCompanyMap"
+            },
+            {
+              "-Name": "Images_Company",
+              "-Member": "Images",
+              "-ThisKey": "profileImage",
+              "-OtherKey": "rid",
+              "-Type": "Images",
+              "-IsForeignKey": "true"
+            },
+            {
+              "-Name": "Images_Company1",
+              "-Member": "Images1",
+              "-ThisKey": "backImage",
+              "-OtherKey": "rid",
+              "-Type": "Images",
+              "-IsForeignKey": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.UsersSkill",
+        "-Member": "UsersSkill",
+        "Type": {
+          "-Name": "UsersSkill",
+          "Column": [
+            {
+              "-Name": "uid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-IsPrimaryKey": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "s1",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "s2",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "s3",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "s4",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "s5",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "s6",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "s1n",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(30)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "s2n",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(30)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "s3n",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(30)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "s4n",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(30)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "s5n",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(30)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "s6n",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(30)",
+              "-CanBeNull": "true"
+            }
+          ],
+          "Association": {
+            "-Name": "Users_UsersSkill",
+            "-Member": "Users",
+            "-ThisKey": "uid",
+            "-OtherKey": "uid",
+            "-Type": "Users",
+            "-IsForeignKey": "true",
+            "-DeleteRule": "CASCADE",
+            "-DeleteOnNull": "true"
+          }
+        }
+      },
+      {
+        "-Name": "dbo.CompanyProjectMap",
+        "-Member": "CompanyProjectMap",
+        "Type": {
+          "-Name": "CompanyProjectMap",
+          "Column": [
+            {
+              "-Name": "id",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL IDENTITY",
+              "-IsPrimaryKey": "true",
+              "-IsDbGenerated": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "pid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "cid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "projectRole",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(1000) NOT NULL",
+              "-CanBeNull": "false"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "CompanyProjectMap_Portfolio",
+              "-Member": "Portfolio",
+              "-ThisKey": "id",
+              "-OtherKey": "projectMapID",
+              "-Type": "Portfolio"
+            },
+            {
+              "-Name": "Company_CompanyProjectMap",
+              "-Member": "Company",
+              "-ThisKey": "cid",
+              "-OtherKey": "cid",
+              "-Type": "Company",
+              "-IsForeignKey": "true"
+            },
+            {
+              "-Name": "Projects_CompanyProjectMap",
+              "-Member": "Projects",
+              "-ThisKey": "pid",
+              "-OtherKey": "pid",
+              "-Type": "Projects",
+              "-IsForeignKey": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.FavoritePortfolio",
+        "-Member": "FavoritePortfolio",
+        "Type": {
+          "-Name": "FavoritePortfolio",
+          "Column": [
+            {
+              "-Name": "uid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-IsPrimaryKey": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "fid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-IsPrimaryKey": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "processDt",
+              "-Type": "System.DateTime",
+              "-DbType": "DateTime NOT NULL",
+              "-CanBeNull": "false"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "Portfolio_FavoritePortfolio",
+              "-Member": "Portfolio",
+              "-ThisKey": "fid",
+              "-OtherKey": "fid",
+              "-Type": "Portfolio",
+              "-IsForeignKey": "true"
+            },
+            {
+              "-Name": "Users_FavoritePortfolio",
+              "-Member": "Users",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "Users",
+              "-IsForeignKey": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.Follow",
+        "-Member": "Follow",
+        "Type": {
+          "-Name": "Follow",
+          "Column": [
+            {
+              "-Name": "uid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-IsPrimaryKey": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "uidTo",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-IsPrimaryKey": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "processDt",
+              "-Type": "System.DateTime",
+              "-DbType": "DateTime NOT NULL",
+              "-CanBeNull": "false"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "Users_Follow",
+              "-Member": "Users",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "Users",
+              "-IsForeignKey": "true"
+            },
+            {
+              "-Name": "Users_Follow1",
+              "-Member": "Users1",
+              "-ThisKey": "uidTo",
+              "-OtherKey": "uid",
+              "-Type": "Users",
+              "-IsForeignKey": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.Images",
+        "-Member": "Images",
+        "Type": {
+          "-Name": "Images",
+          "Column": [
+            {
+              "-Name": "rid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL IDENTITY",
+              "-IsPrimaryKey": "true",
+              "-IsDbGenerated": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "storage",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(20) NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "thumbnailID",
+              "-Type": "System.Guid",
+              "-DbType": "UniqueIdentifier",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "fullID",
+              "-Type": "System.Guid",
+              "-DbType": "UniqueIdentifier",
+              "-CanBeNull": "true"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "Images_Company",
+              "-Member": "Company",
+              "-ThisKey": "rid",
+              "-OtherKey": "profileImage",
+              "-Type": "Company"
+            },
+            {
+              "-Name": "Images_Company1",
+              "-Member": "Company1",
+              "-ThisKey": "rid",
+              "-OtherKey": "backImage",
+              "-Type": "Company"
+            },
+            {
+              "-Name": "Images_PortfolioImages",
+              "-Member": "PortfolioImages",
+              "-ThisKey": "rid",
+              "-OtherKey": "rid",
+              "-Type": "PortfolioImages"
+            },
+            {
+              "-Name": "Images_Users",
+              "-Member": "Users",
+              "-ThisKey": "rid",
+              "-OtherKey": "userImage",
+              "-Type": "Users"
+            },
+            {
+              "-Name": "Images_Users1",
+              "-Member": "Users1",
+              "-ThisKey": "rid",
+              "-OtherKey": "backImage",
+              "-Type": "Users"
+            },
+            {
+              "-Name": "Images_Projects",
+              "-Member": "Projects",
+              "-ThisKey": "rid",
+              "-OtherKey": "rid",
+              "-Type": "Projects"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.Portfolio",
+        "-Member": "Portfolio",
+        "Type": {
+          "-Name": "Portfolio",
+          "Column": [
+            {
+              "-Name": "fid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL IDENTITY",
+              "-IsPrimaryKey": "true",
+              "-IsDbGenerated": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "uid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "projectMapID",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "title",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(200)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "descriptions",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(2000)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "hash",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(200)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "lastUpdateDt",
+              "-Type": "System.DateTime",
+              "-DbType": "DateTime",
+              "-CanBeNull": "true"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "Portfolio_FavoritePortfolio",
+              "-Member": "FavoritePortfolio",
+              "-ThisKey": "fid",
+              "-OtherKey": "fid",
+              "-Type": "FavoritePortfolio"
+            },
+            {
+              "-Name": "Portfolio_PortfolioImages",
+              "-Member": "PortfolioImages",
+              "-ThisKey": "fid",
+              "-OtherKey": "fid",
+              "-Type": "PortfolioImages"
+            },
+            {
+              "-Name": "Portfolio_PortfolioMessage",
+              "-Member": "PortfolioMessage",
+              "-ThisKey": "fid",
+              "-OtherKey": "fid",
+              "-Type": "PortfolioMessage"
+            },
+            {
+              "-Name": "CompanyProjectMap_Portfolio",
+              "-Member": "CompanyProjectMap",
+              "-ThisKey": "projectMapID",
+              "-OtherKey": "id",
+              "-Type": "CompanyProjectMap",
+              "-IsForeignKey": "true"
+            },
+            {
+              "-Name": "Users_Portfolio",
+              "-Member": "Users",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "Users",
+              "-IsForeignKey": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.PortfolioImages",
+        "-Member": "PortfolioImages",
+        "Type": {
+          "-Name": "PortfolioImages",
+          "Column": [
+            {
+              "-Name": "iid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL IDENTITY",
+              "-IsPrimaryKey": "true",
+              "-IsDbGenerated": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "fid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "rid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "isPrimary",
+              "-Type": "System.Boolean",
+              "-DbType": "Bit NOT NULL",
+              "-CanBeNull": "false"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "Images_PortfolioImages",
+              "-Member": "Images",
+              "-ThisKey": "rid",
+              "-OtherKey": "rid",
+              "-Type": "Images",
+              "-IsForeignKey": "true",
+              "-DeleteRule": "CASCADE",
+              "-DeleteOnNull": "true"
+            },
+            {
+              "-Name": "Portfolio_PortfolioImages",
+              "-Member": "Portfolio",
+              "-ThisKey": "fid",
+              "-OtherKey": "fid",
+              "-Type": "Portfolio",
+              "-IsForeignKey": "true",
+              "-DeleteRule": "CASCADE",
+              "-DeleteOnNull": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.PortfolioMessage",
+        "-Member": "PortfolioMessage",
+        "Type": {
+          "-Name": "PortfolioMessage",
+          "Column": [
+            {
+              "-Name": "mid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL IDENTITY",
+              "-IsPrimaryKey": "true",
+              "-IsDbGenerated": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "fid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "uid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "message",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(250) NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "processDt",
+              "-Type": "System.DateTime",
+              "-DbType": "DateTime NOT NULL",
+              "-CanBeNull": "false"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "Portfolio_PortfolioMessage",
+              "-Member": "Portfolio",
+              "-ThisKey": "fid",
+              "-OtherKey": "fid",
+              "-Type": "Portfolio",
+              "-IsForeignKey": "true",
+              "-DeleteRule": "CASCADE",
+              "-DeleteOnNull": "true"
+            },
+            {
+              "-Name": "Users_PortfolioMessage",
+              "-Member": "Users",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "Users",
+              "-IsForeignKey": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.Roles",
+        "-Member": "Roles",
+        "Type": {
+          "-Name": "Roles",
+          "Column": [
+            {
+              "-Name": "rid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL IDENTITY",
+              "-IsPrimaryKey": "true",
+              "-IsDbGenerated": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "roleCd",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(10) NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "roleNm",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(50) NOT NULL",
+              "-CanBeNull": "false"
+            }
+          ],
+          "Association": {
+            "-Name": "Roles_UserRolesMap",
+            "-Member": "UserRolesMap",
+            "-ThisKey": "rid",
+            "-OtherKey": "rid",
+            "-Type": "UserRolesMap"
+          }
+        }
+      },
+      {
+        "-Name": "dbo.UserCompanyMap",
+        "-Member": "UserCompanyMap",
+        "Type": {
+          "-Name": "UserCompanyMap",
+          "Column": [
+            {
+              "-Name": "uid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-IsPrimaryKey": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "cid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-IsPrimaryKey": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "seq",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "isCurrent",
+              "-Type": "System.Boolean",
+              "-DbType": "Bit NOT NULL",
+              "-CanBeNull": "false"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "Company_UserCompanyMap",
+              "-Member": "Company",
+              "-ThisKey": "cid",
+              "-OtherKey": "cid",
+              "-Type": "Company",
+              "-IsForeignKey": "true"
+            },
+            {
+              "-Name": "Users_UserCompanyMap",
+              "-Member": "Users",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "Users",
+              "-IsForeignKey": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.UserRolesMap",
+        "-Member": "UserRolesMap",
+        "Type": {
+          "-Name": "UserRolesMap",
+          "Column": [
+            {
+              "-Name": "uid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-IsPrimaryKey": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "rid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-IsPrimaryKey": "true",
+              "-CanBeNull": "false"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "Roles_UserRolesMap",
+              "-Member": "Roles",
+              "-ThisKey": "rid",
+              "-OtherKey": "rid",
+              "-Type": "Roles",
+              "-IsForeignKey": "true"
+            },
+            {
+              "-Name": "Users_UserRolesMap",
+              "-Member": "Users",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "Users",
+              "-IsForeignKey": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.UserNotification",
+        "-Member": "UserNotification",
+        "Type": {
+          "-Name": "UserNotification",
+          "Column": {
+            "-Name": "uid",
+            "-Type": "System.Int32",
+            "-DbType": "Int NOT NULL",
+            "-IsPrimaryKey": "true",
+            "-CanBeNull": "false"
+          },
+          "Association": {
+            "-Name": "Users_UserNotification",
+            "-Member": "Users",
+            "-ThisKey": "uid",
+            "-OtherKey": "uid",
+            "-Type": "Users",
+            "-IsForeignKey": "true",
+            "-DeleteRule": "CASCADE",
+            "-DeleteOnNull": "true"
+          }
+        }
+      },
+      {
+        "-Name": "dbo.V_UserNotification",
+        "-Member": "V_UserNotification",
+        "Type": {
+          "-Name": "V_UserNotification",
+          "Column": [
+            {
+              "-Name": "act",
+              "-Type": "System.String",
+              "-DbType": "VarChar(10) NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "uid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "ids",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "msg",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(200)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "processDt",
+              "-Type": "System.DateTime",
+              "-DbType": "DateTime",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "DIF",
+              "-Type": "System.String",
+              "-DbType": "VarChar(7)",
+              "-CanBeNull": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.Users",
+        "-Member": "Users",
+        "Type": {
+          "-Name": "Users",
+          "Column": [
+            {
+              "-Name": "uid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL IDENTITY",
+              "-IsPrimaryKey": "true",
+              "-IsDbGenerated": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "email",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(100) NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "password",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(1000) NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "accountVerify",
+              "-Type": "System.Boolean",
+              "-DbType": "Bit NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "nmKor",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(100)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "nmEng",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(100)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "userImage",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "backImage",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "majority",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(50)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "career",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "contacts",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(30)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "location",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(200)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "hash",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(200)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "useYn",
+              "-Type": "System.Boolean",
+              "-DbType": "Bit NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "verifyCode",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(100)",
+              "-CanBeNull": "true"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "Users_UsersSkill",
+              "-Member": "UsersSkill",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "UsersSkill",
+              "-Cardinality": "One"
+            },
+            {
+              "-Name": "Users_FavoritePortfolio",
+              "-Member": "FavoritePortfolio",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "FavoritePortfolio"
+            },
+            {
+              "-Name": "Users_Follow",
+              "-Member": "Follow",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "Follow"
+            },
+            {
+              "-Name": "Users_Follow1",
+              "-Member": "Follow1",
+              "-ThisKey": "uid",
+              "-OtherKey": "uidTo",
+              "-Type": "Follow"
+            },
+            {
+              "-Name": "Users_Portfolio",
+              "-Member": "Portfolio",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "Portfolio"
+            },
+            {
+              "-Name": "Users_PortfolioMessage",
+              "-Member": "PortfolioMessage",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "PortfolioMessage"
+            },
+            {
+              "-Name": "Users_UserCompanyMap",
+              "-Member": "UserCompanyMap",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "UserCompanyMap"
+            },
+            {
+              "-Name": "Users_UserRolesMap",
+              "-Member": "UserRolesMap",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "UserRolesMap"
+            },
+            {
+              "-Name": "Users_UserNotification",
+              "-Member": "UserNotification",
+              "-ThisKey": "uid",
+              "-OtherKey": "uid",
+              "-Type": "UserNotification",
+              "-Cardinality": "One"
+            },
+            {
+              "-Name": "Images_Users",
+              "-Member": "Images",
+              "-ThisKey": "userImage",
+              "-OtherKey": "rid",
+              "-Type": "Images",
+              "-IsForeignKey": "true"
+            },
+            {
+              "-Name": "Images_Users1",
+              "-Member": "Images1",
+              "-ThisKey": "backImage",
+              "-OtherKey": "rid",
+              "-Type": "Images",
+              "-IsForeignKey": "true"
+            }
+          ]
+        }
+      },
+      {
+        "-Name": "dbo.Projects",
+        "-Member": "Projects",
+        "Type": {
+          "-Name": "Projects",
+          "Column": [
+            {
+              "-Name": "pid",
+              "-Type": "System.Int32",
+              "-DbType": "Int NOT NULL IDENTITY",
+              "-IsPrimaryKey": "true",
+              "-IsDbGenerated": "true",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "nmKor",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(100) NOT NULL",
+              "-CanBeNull": "false"
+            },
+            {
+              "-Name": "nmEng",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(100)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "descriptions",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(1000)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "country",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(50)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "location",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(200)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "opened",
+              "-Type": "System.String",
+              "-DbType": "VarChar(4)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "catagory",
+              "-Type": "System.String",
+              "-DbType": "NVarChar(100)",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "rid",
+              "-Type": "System.Int32",
+              "-DbType": "Int",
+              "-CanBeNull": "true"
+            },
+            {
+              "-Name": "isConfirm",
+              "-Type": "System.Boolean",
+              "-DbType": "Bit NOT NULL",
+              "-CanBeNull": "false"
+            }
+          ],
+          "Association": [
+            {
+              "-Name": "Projects_CompanyProjectMap",
+              "-Member": "CompanyProjectMap",
+              "-ThisKey": "pid",
+              "-OtherKey": "pid",
+              "-Type": "CompanyProjectMap"
+            },
+            {
+              "-Name": "Images_Projects",
+              "-Member": "Images",
+              "-ThisKey": "rid",
+              "-OtherKey": "rid",
+              "-Type": "Images",
+              "-IsForeignKey": "true"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,19 +1,18 @@
 const router = require('express').Router();
-const Todo = require('../models/user/todoSchema');
+const User = require('../../models/user/userSchema');
 
 // Find All
 router.get('/', (req, res) => {
-  Todo.find({})
-    .then((todos) => {
-      
-      res.send(`find successfully: ${todos}`);
+  User.find({})
+    .then((result) => {
+      res.json(result);
     })
     .catch(err => res.status(500).send(err));
 });
 
 // Find One by todoid
 router.get('/todoid/:todoid', (req, res) => {
-  Todo.findOneByTodoid(req.params.todoid)
+  User.findOneByTodoid(req.params.todoid)
     .then((todo) => {
       if (!todo) return res.status(404).send({ err: 'Todo not found' });
       res.send(`findOne successfully: ${todo}`);
@@ -23,21 +22,21 @@ router.get('/todoid/:todoid', (req, res) => {
 
 // Create new todo document
 router.post('/', (req, res) => {
-  Todo.create(req.body)
+  User.create(req.body)
     .then(todo => res.send(todo))
     .catch(err => res.status(500).send(err));
 });
 
 // Update by todoid
 router.put('/todoid/:todoid', (req, res) => {
-  Todo.updateByTodoid(req.params.todoid, req.body)
+  User.updateByTodoid(req.params.todoid, req.body)
     .then(todo => res.send(todo))
     .catch(err => res.status(500).send(err));
 });
 
 // Delete by todoid
 router.delete('/todoid/:todoid', (req, res) => {
-  Todo.deleteByTodoid(req.params.todoid)
+  User.deleteByTodoid(req.params.todoid)
     .then(() => res.sendStatus(200))
     .catch(err => res.status(500).send(err));
 });

@@ -1,5 +1,5 @@
 // ROUTERS
 module.exports.init = function(app) {
-	app.use('/todos', require('./todo'));
+	app.use('/users', require('./user/'));
 	return app;	
 }
