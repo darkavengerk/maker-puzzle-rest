@@ -2,11 +2,11 @@
 
 const router = require('express').Router();
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const Project = mongoose.model('Project');
 
 // Find All
 router.get('/', (req, res) => {
-  User.find({})
+  Project.find({})
     .then((result) => {
       res.json(result);
     })
@@ -15,8 +15,21 @@ router.get('/', (req, res) => {
 
 router.post('/csv/', (req, res) => {
 
-  User.create(req.body)
+	console.log(req.body);
+  Project.create(req.body)
     .then(result => res.send(result))
+    .catch(err => {
+			console.log(err);
+			res.status(500).send(err)
+		});
+});
+
+router.post('/:pid', (req, res) => {
+
+	var pid = req.params.pid;
+
+	Project.update({pid:pid}, req.body)
+		.then(result => res.send(result))
     .catch(err => {
 			console.log(err);
 			res.status(500).send(err)

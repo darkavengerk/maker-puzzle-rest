@@ -2,11 +2,11 @@
 
 const router = require('express').Router();
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const Company = mongoose.model('Company');
 
 // Find All
 router.get('/', (req, res) => {
-  User.find({})
+  Company.find({})
     .then((result) => {
       res.json(result);
     })
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 router.post('/csv/', (req, res) => {
 
-  User.create(req.body)
+  Company.create(req.body)
     .then(result => res.send(result))
     .catch(err => {
 			console.log(err);
