@@ -10,10 +10,21 @@ module.exports.init = function(mode, cb) {
 	mongoose.Promise = global.Promise;
 
 	fs.readFile('keys.json', 'utf8', function(err, data) {
-		console.log(__dirname, err, data);
-		var keys = JSON.parse(data);
-		const uri = keys.db[mode].uri;	
-		
+		const keys = JSON.parse(data).db[mode];
+		let uri;
+
+		if(keys.auth) {
+		  const user = keys.username;
+			const password = keys.password;
+			const port = keys.port;
+			const address = keys.addr;
+			const db = keys.db;
+			uri = `mongodb://${encodeURIComponent(user)}:${encodeURIComponent(password)}@${address}:${port}/${db}`
+			console.log(uri);
+		}
+		else {
+			uri = keys.uri;
+		}		
 
 		// CONNECT TO MONGODB SERVER
 		mongoose.connect(uri, {})
