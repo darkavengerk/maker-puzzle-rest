@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 8281;
+const app_mode = process.env.APP || 'dev';
 
 // Static File Service
 app.use(express.static('public'));
@@ -31,7 +32,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-var db = require('./models').init(function(err){
+var db = require('./models').init(app_mode, function(err){
 	require('./routes').init(app);
 	app.listen(port, () => console.log(`Server listening on port ${port}`));	
 });
